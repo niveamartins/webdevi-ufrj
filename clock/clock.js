@@ -69,10 +69,10 @@ var style = getComputedStyle(document.head);
 // Handle's origin border, III and IX, and clock border color.
 const grena = style.getPropertyValue("--cgrena");
 
-// Unused.
+// Handles color.
 const green = style.getPropertyValue("--cgreen");
 
-// Handles and day light arc color.
+// Day light arc color.
 const orange = style.getPropertyValue("--corange");
 
 // Handle's origin fill color.
@@ -454,9 +454,9 @@ drawClock.decimals[18].c = white3;
 var runAnimation = (() => {
   // clock handles width x length X color
   const clock_handles = [
-    { width: 8, length: 0.5, c: orange },
-    { width: 8, length: 0.8, c: orange },
-    { width: 2, length: 0.9, c: orange },
+    { width: 8, length: 0.5, c: green },
+    { width: 8, length: 0.8, c: green },
+    { width: 2, length: 0.9, c: green },
     { width: 1, length: 0.95, c: white3 },
   ];
   const oneMin = pi / 30; // 6 degrees
