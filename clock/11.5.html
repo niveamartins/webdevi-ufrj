@@ -3,15 +3,15 @@
     <head>
         <title>Fla's Clock</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="/cwdc/mainPage/LCG.css" />
         <style>
             :root {
-                --cgrena: black;
-                --cgreen: #c22a1e;
-                --corange: #ffa500;
+                --cgrena: #8b2439;
+                --cgreen: #446127;
+                --corange: orange;
                 --cwhite: white;
-                --cwhite1: #ffa500;
+                --cwhite1: #8b2439;
                 --cwhite2: #446127;
                 --cwhite3: #446127;
             }
@@ -20,7 +20,7 @@
             }
             #clock,
             #handles {
-                border: 5px solid #ffa500;
+                border: 5px solid #8b2439;
                 padding: 20px;
                 margin: 0px;
             }
@@ -42,9 +42,24 @@
             #handles {
                 z-index: 2;
             }
+            #legend {
+                z-index: 1;
+            }
             #clock {
                 background-color: whitesmoke;
                 z-index: 1;
+            }
+            button {
+                font-size: 200%;
+                margin-right: 40px;
+                margin-left: 40px;
+                padding: 0 10px 0 10px;
+            }
+            #address {
+                margin-left: 0;
+                text-align: justify;
+                width: 512px;
+                font-size: small;
             }
         </style>
     </head>
@@ -55,8 +70,10 @@
                 >Clube de Regatas do Flamengo</a
             >
             <sub style="font-size: small">
-                <a href="/cg/downloads/PDFs/04_LCG_Window-Viewport.pdf">[1]</a>
-                <a href="/python/laboratorios2.html#8c">[2]</a>
+                <a href="/cwdc/downloads/PDFs/04_LCG_Window-Viewport.pdf"
+                    >[1]</a
+                >
+                <a href="/cwdc/downloads/cederj/AD1_2022-1.pdf">[2]</a>
                 <a
                     href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
                 >
@@ -72,8 +89,20 @@
             <canvas id="handles" width="512" height="512">
                 Please upgrade your browser.
             </canvas>
+            <canvas id="legend" width="512" height="512">
+                Please upgrade your browser.
+            </canvas>
         </div>
         <br />
+        <div id="address"></div>
+        <br />
+        <br />
+        <div class="sideBySide">
+            <label><b>Location:</b></label>
+            <button onclick="nextLocation()">+</button>
+            <button onclick="previousLocation()">-</button>
+        </div>
+
         <script src="suncalc.js"></script>
         <script src="clock.js"></script>
         <script src="date.js"></script>
