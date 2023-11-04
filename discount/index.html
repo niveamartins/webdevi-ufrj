@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt" xml:lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>CDC</title>
+        <meta charset="utf8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+        />
+        <script src="js-webshim/minified/polyfiller.js"></script>
+    </head>
+
+    <body>
+        <fieldset id="cdcfieldset" class="draggable ui-widget-content">
+            <legend>
+                <strong>Crédito Direto ao Consumidor</strong>
+            </legend>
+            <form>
+                <div class="box">
+                    <span class="input-group-addon">$</span>
+                    <label for="parc">Parcelamento:</label>
+                    <input
+                        id="parc"
+                        type="number"
+                        name="np"
+                        size="5"
+                        value="36"
+                        min="1"
+                        max="72000"
+                        step="1"
+                        required>meses<br/>
+
+                    <span class="input-group-addon">$</span>
+                    <label for="itax">Taxa de juros:</label>
+                    <input
+                        id="itax"
+                        type="number"
+                        name="tax"
+                        size="10"
+                        value="0.50"
+                        min="0.0"
+                        max="100.0"
+                        step="any"
+                        required>% mês<br />
+
+                    <span class="input-group-addon">$</span>
+                    <label for="ipv">Valor Financiado: </label>
+                    <input
+                        id="ipv"
+                        type="number"
+                        name="pv"
+                        value="0.0"
+                        min="0.0"
+                        step="0.01"
+                        class="form-control currency"
+                        required><br>
+
+                    <span class="input-group-addon">$</span>
+                    <label for="ipp">Valor Final (opcional):</label>
+                    <input
+                        id="ipp"
+                        type="number"
+                        name="pp"
+                        value="0.0"
+                        min="0.0"
+                        step="0.01"
+                        class="form-control currency"
+                        required><br>
+
+                    <span class="input-group-addon">$</span>
+                    <label for="ipb">Valor a Voltar(opcional):</label>
+                    <input
+                        id="ipb"
+                        type="number"
+                        name="pb"
+                        value="0.0"
+                        min="0.0"
+                        step="0.01"
+                        class="form-control currency"
+                        required><br>
+
+                    <span class="input-group-addon">$</span>
+                    <label for="parc">Meses a Voltar(opcional):</label>
+                    <input
+                        id="mtb"
+                        type="number"
+                        name="np"
+                        size="5"
+                        value="0"
+                        min="1"
+                        max="72000"
+                        step="1"
+                        required>meses<br/>
+
+                    <label for="idp">Entrada?</label>
+                    <input id="idp" type="checkbox" name="dp" value="1"><br>
+
+                    <div id="entryDIV">
+                        <span class="input-group-addon">$</span>
+                        <label for="financingEntry">Valor de Entrada:</label>
+                        <input
+                            id="financingEntry"
+                            type="number"
+                            name="entry"
+                            value="0.0"
+                            min="0.0"
+                            step="100"
+                            class="form-control currency"
+                            required><br>
+                    </div>
+                </div>
+                <div class="messages">
+                    <input
+                        id="submitButton"
+                        class="button"
+                        type="submit"
+                        value="Calcular">
+                    <p>(arraste-me para reposicionar a janela)</p>
+                </div>
+            </form>
+
+            <div id="errorMessage" class="messages"></div>
+            <div id="successMessage" class="messages">
+                <p>
+                    Se não souber a taxa de juros coloque 0%, e forneça o valor
+                    final.
+                </p>
+            </div>
+        </fieldset>
+
+        <div id="data-container">
+            <div id="important-data" class="data-box">
+                <!-- Table content will be inserted here -->
+                
+            </div>
+            <div id="important-data2" class="data-box">
+                <!-- Table content will be inserted here -->
+            </div>
+
+            <div id="important-data3" class="data-box">
+                <!-- Table content will be inserted here -->
+            </div>
+        </div>
+
+        <div id="table-container">
+            <div id="table-box">
+                <p>Price Table</p>
+                <table id="price-table">
+                    <!-- Table content will be inserted here -->
+                </table>
+            </div>
+        </div>
+
+        <div id="buttonDIV">
+            <button id="myButton">Back</button>
+        </div>
+
+        <script src="LCG.js"></script>
+        <script src="script.js"></script>
+        
+
+        <script>
+            dragAndSave("#cdcfieldset"); // $("#cdcfieldset").draggable()
+
+            webshims.setOptions("forms-ext", {
+                replaceUI: "auto",
+                types: "number",
+            });
+            webshims.polyfill("forms forms-ext");
+        </script>
+    </body>
+</html>
